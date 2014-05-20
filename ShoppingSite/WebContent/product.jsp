@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@page import="com.servlets.ProductBean" %>
+ <%@page import="com.servlets.RunUtils" %>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -144,27 +146,36 @@
     <div class="more-products">
       <div class="more-products-holder">
         <ul>
-          <li><a href="#"><img src="css/images/small1.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small2.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small3.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small4.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small5.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small6.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small7.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small1.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small2.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small3.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small4.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small5.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small6.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small7.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small1.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small2.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small3.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small4.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small5.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="css/images/small6.jpg" alt="" /></a></li>
-          <li class="last"><a href="#"><img src="css/images/small7.jpg" alt="" /></a></li>
+          <%! 
+   			private ProductBean bean1 = RunUtils.randomProduct(21);
+   		 	
+   		%>
+   		 
+   		
+   		<% request.setAttribute("randomProduct1", bean1); %>
+   		
+   		
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[0]}&mydata2=${randomProduct1.price[0]}"><img src="ShowMiniImage?image=${randomProduct1.path[0]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[1]}&mydata2=${randomProduct1.price[1]}"><img src="ShowMiniImage?image=${randomProduct1.path[1]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[2]}&mydata2=${randomProduct1.price[2]}"><img src="ShowMiniImage?image=${randomProduct1.path[2]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[3]}&mydata2=${randomProduct1.price[3]}"><img src="ShowMiniImage?image=${randomProduct1.path[3]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[4]}&mydata2=${randomProduct1.price[4]}"><img src="ShowMiniImage?image=${randomProduct1.path[4]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[5]}&mydata2=${randomProduct1.price[5]}"><img src="ShowMiniImage?image=${randomProduct1.path[5]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[6]}&mydata2=${randomProduct1.price[6]}"><img src="ShowMiniImage?image=${randomProduct1.path[6]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[7]}&mydata2=${randomProduct1.price[7]}"><img src="ShowMiniImage?image=${randomProduct1.path[7]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[8]}&mydata2=${randomProduct1.price[8]}"><img src="ShowMiniImage?image=${randomProduct1.path[8]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[9]}&mydata2=${randomProduct1.price[9]}"><img src="ShowMiniImage?image=${randomProduct1.path[9]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[10]}&mydata2=${randomProduct1.price[10]}"><img src="ShowMiniImage?image=${randomProduct1.path[10]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[11]}&mydata2=${randomProduct1.price[11]}"><img src="ShowMiniImage?image=${randomProduct1.path[11]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[12]}&mydata2=${randomProduct1.price[12]}"><img src="ShowMiniImage?image=${randomProduct1.path[12]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[13]}&mydata2=${randomProduct1.price[13]}"><img src="ShowMiniImage?image=${randomProduct1.path[13]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[14]}&mydata2=${randomProduct1.price[14]}"><img src="ShowMiniImage?image=${randomProduct1.path[14]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[15]}&mydata2=${randomProduct1.price[15]}"><img src="ShowMiniImage?image=${randomProduct1.path[15]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[16]}&mydata2=${randomProduct1.price[16]}"><img src="ShowMiniImage?image=${randomProduct1.path[16]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[17]}&mydata2=${randomProduct1.price[17]}"><img src="ShowMiniImage?image=${randomProduct1.path[17]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[18]}&mydata2=${randomProduct1.price[18]}"><img src="ShowMiniImage?image=${randomProduct1.path[18]}" alt="" /></a></li>
+          <li><a href="ProductServlet?mydata1=${randomProduct1.path[19]}&mydata2=${randomProduct1.price[19]}"><img src="ShowMiniImage?image=${randomProduct1.path[19]}" alt="" /></a></li>
+          <li class="last"><a href="ProductServlet?mydata1=${randomProduct1.path[20]}&mydata2=${randomProduct1.price[20]}"><img src="ShowMiniImage?image=${randomProduct1.path[20]}" alt="" /></a></li>
         </ul>
       </div>
       <div class="more-nav"> <a href="#" class="prev">previous</a> <a href="#" class="next">next</a> </div>

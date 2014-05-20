@@ -1,11 +1,18 @@
 package com.servlets;
 
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 //import com.utils.DbUtil;;
 
@@ -41,7 +48,7 @@ public class RunUtils {
 		 
 	 
 	 
-	 public static ProductBean randomProduct() {
+	 public static ProductBean randomProduct(int limit) {
 		 ArrayList<String> path1 = new ArrayList<String>();
 		 ArrayList<Float> price1 = new ArrayList<Float>();
 		 ArrayList<String> name1 = new ArrayList<String>();
@@ -53,7 +60,7 @@ public class RunUtils {
 		 try{
 			
 			 Connection conn = getConnection();
-			 String sql = "select productPicture,productPrice,productName,productDescription from product order by rand() limit 3";
+			 String sql = "select productPicture,productPrice,productName,productDescription from product order by rand() limit " + limit;
 			 PreparedStatement statement = conn.prepareStatement(sql);
 			 
 			 ResultSet rs = statement.executeQuery(sql);
@@ -73,6 +80,7 @@ public class RunUtils {
 			}
 		 return(new ProductBean(path1,price1,name1,description1));
 	 }
+	 
 	 
 	 
 	 public static ProductBean selectCategory(String category){
@@ -190,7 +198,25 @@ public class RunUtils {
 		 return(new ProductBean(path1,price1,name1,description1));
 		 
 	 }
+	 public static BufferedImage readImage(String path) throws IOException{
+		 String yol = "C:\\Users\\OZTURK\\git\\shopping\\ShoppingSite\\WebContent\\";
+		 File f = new File(yol+path);
+		 BufferedImage bimg = ImageIO.read(f);
+		 BufferedImage bi = resize(bimg,94,94);
+		 return bi;
+	 }
 	 
+	 public static BufferedImage resize(BufferedImage img, int newW, int newH){
+		 int w = img.getWidth();
+		 int h = img.getHeight();
+		 BufferedImage dimg = new BufferedImage(newW, newH, img.getType());
+		 Graphics2D g = dimg.createGraphics();
+		 g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+		 g.drawImage(img, 0, 0, newW, newH, 0, 0, w, h, null);
+		 g.dispose();
+		 return dimg;
+		 
+	 }
 	 
 	
 	 
