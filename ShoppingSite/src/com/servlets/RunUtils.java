@@ -31,7 +31,7 @@ public class RunUtils {
 			 Class.forName("com.mysql.jdbc.Driver");
 			 String url="jdbc:mysql://localhost:3306/shopping";
 			 String username="root";
-			 String password="lazkopat61";
+			 String password="***";
 			
 			 conn=DriverManager.getConnection(url,username,password);
 		 }
